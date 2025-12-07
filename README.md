@@ -49,7 +49,7 @@ python tugas2_deteksi_biru.py
 
 ---
 
-## 🔹 Tugas 1 — Real-Time Image Filtering
+##  Tugas 1 — Real-Time Image Filtering
 
 Program ini menerapkan berbagai filter real-time menggunakan webcam.
 
@@ -78,7 +78,7 @@ sharpen_kernel = np.array([
 
 ---
 
-## 🔹 Tugas 2 — Deteksi Objek Biru (HSV + Morphology)
+##  Tugas 2 — Deteksi Objek Biru (HSV + Morphology)
 
 Program ini mendeteksi objek berwarna biru menggunakan segmentasi HSV, kemudian membersihkan hasil threshold menggunakan operasi morfologi.
 
@@ -97,8 +97,3 @@ upper_blue = np.array([140, 255, 255])
 6. Tampilkan bounding box jika objek valid  
 
 ---
-
-## Catatan
-- Pastikan webcam berfungsi dengan baik  
-- Cahaya ruangan mempengaruhi hasil deteksi  
-- Rentang HSV bisa disesuaikan sesuai kebutuhan  
