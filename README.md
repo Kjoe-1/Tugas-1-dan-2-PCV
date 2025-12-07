@@ -30,8 +30,9 @@ python tugas1_smoothing_blurring.py
 |--------|--------|
 | `0` | Mode Normal |
 | `1` | Average Blur (5×5) |
-| `2` | Gaussian Blur (Custom Kernel) |
+| `2` | Gaussian Blur |
 | `3` | Sharpening |
+| `4` | Average Blur (9x9) |
 | `q` | Quit |
 
 ---
