@@ -1,3 +1,27 @@
+Tugas Pengolahan Citra Digital (OpenCV)
+
+Dokumen ini berisi dua program utama:
+
+Tugas 1: Smoothing & Blurring (Average, Gaussian, Sharpen)
+
+Tugas 2: Deteksi Objek Biru (HSV + Morphology + Contour Detection)
+
+Keduanya berjalan secara real-time menggunakan webcam.
+
+Requirements
+pip install opencv-python numpy
+
+Cara Menjalankan
+Tugas 1 — Smoothing dan Blurring
+python tugas1_smoothing_blurring.py
+
+Kontrol Keyboard
+Tombol	Fungsi
+0	Mode Normal
+1	Average Blur (5×5)
+2	Gaussian Blur (Custom Kernel)
+3	Sharpening
+q	Quit
 Tugas 2 — Deteksi Objek Biru
 python tugas2_deteksi_biru.py
 
