@@ -1,10 +1,6 @@
 import cv2
 import numpy as np
 
-# Gaussian kernel (5x5)
-gauss_1d = cv2.getGaussianKernel(5, sigma=1)
-gaussian_kernel = gauss_1d @ gauss_1d.T
-
 # Sharpening kernel
 sharpen_kernel = np.array([
     [ 0, -1,  0],
@@ -14,7 +10,7 @@ sharpen_kernel = np.array([
 
 mode = 0
 mode_text = "Normal"
-print("Tekan 1=Average, 2=Gaussian, 3=Sharpen, 0=Normal, q=Quit")
+print("Tekan 1=Average5x5, 2=Gaussian, 3=Sharpen, 4=Average9x9, 0=Normal, q=Quit")
 
 cap = cv2.VideoCapture(0)
 
@@ -31,26 +27,30 @@ while True:
         mode_text = "Average Blur (5x5)"
 
     elif mode == 2:
-        output = cv2.filter2D(frame, -1, gaussian_kernel)
-        mode_text = "Gaussian Blur (Custom Kernel)"
+        # Gaussian blur tanpa ukuran kernel
+        output = cv2.GaussianBlur(frame, (0, 0), sigmaX=1)
+        mode_text = "Gaussian Blur"
 
     elif mode == 3:
         output = cv2.filter2D(frame, -1, sharpen_kernel)
         mode_text = "Sharpening"
 
+    elif mode == 4:
+        output = cv2.blur(frame, (9, 9))
+        mode_text = "Average Blur (9x9)"
+
     else:
         mode_text = "Normal"
 
     # === TAMPILKAN TEKS MODE DI ATAS VIDEO ===
-    cv2.putText(output, 
-                f"Mode: {mode_text}", 
-                (20, 40), 
-                cv2.FONT_HERSHEY_SIMPLEX, 
-                1, 
-                (0, 255, 255), 
-                2, 
-                cv2.LINE_AA
-                )
+    cv2.putText(output,
+                f"Mode: {mode_text}",
+                (20, 40),
+                cv2.FONT_HERSHEY_SIMPLEX,
+                1,
+                (0, 255, 255),
+                2,
+                cv2.LINE_AA)
 
     cv2.imshow("Camera", output)
 
@@ -63,6 +63,8 @@ while True:
         mode = 2
     elif key == ord('3'):
         mode = 3
+    elif key == ord('4'):
+        mode = 4
     elif key == ord('0'):
         mode = 0
     elif key == ord('q'):
